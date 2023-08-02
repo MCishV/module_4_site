@@ -9,7 +9,7 @@
 # strcount("abacaby")
 
 
-def strcount(s):
+def strcount(s): #O(n+m)
     dct = {}
     for sym in s:
         dct[sym] = dct.get(sym, 0) + 1
