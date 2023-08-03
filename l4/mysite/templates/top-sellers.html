@@ -1,3 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Топ продавцов
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,21 +27,21 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="top-sellers"><span style="font-weight: bold;">Топ продавцов</span>
+      <a class="nav-link active" aria-current="page" href="top-sellers/"><span style="font-weight: bold;">Топ продавцов</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="advertisement-post">
+      <a class="nav-link" href="advertisement-post/">
         <span style="font-weight: bold;">Разместить объявление</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="register">
+      <a class="nav-link" href="register/">
         <span style="font-weight: bold;">Регистрация</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="login">
+      <a class="nav-link" href="login/">
         <span style="font-weight: bold;">Войти</span>
       </a>
     </li>
@@ -116,3 +124,4 @@
 </body>
 
 </html>
+{% endblock %}
