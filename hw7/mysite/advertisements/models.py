@@ -1,6 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.contrib import admin
 from django.utils.html import format_html
+
+User = get_user_model()
 
 class Advertisement(models.Model):
     title = models.CharField("Заголовок", max_length=80,)
@@ -9,7 +12,8 @@ class Advertisement(models.Model):
     auction = models.BooleanField("Торг", help_text="Отметьте, если торг уместен")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Опубликовал")
+    image = models.ImageField("Картинка", upload_to="images/")
 
     @admin.display(description="Дата создания")
     def created_date(self):
@@ -26,7 +30,6 @@ class Advertisement(models.Model):
             updated_time = self.updated_at.time().strftime("%H:%M")
             return format_html("<span style='color: coral'>Сегодня в {}</span>", updated_time)
         return self.updated_at
-
 
     class Meta:
         db_table="advertisements"
